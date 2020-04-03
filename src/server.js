@@ -12,7 +12,9 @@ const app = express();
 const server = http.Server(app);
 const io = socketio(server);
 
-mongoose.connect('mongodb+srv://moretti:S@nsung12@aline-ovuuj.gcp.mongodb.net/Aline?retryWrites=true&w=majority',{
+mongoose.connect(
+  process.env.MONGO_URL,
+  {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -38,4 +40,4 @@ app.use(express.json());
 app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')));
 app.use(routes);
 
-server.listen(3333);
+server.listen(process.env.PORT || 3000);
