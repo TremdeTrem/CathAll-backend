@@ -32,11 +32,6 @@ app.use((req, res, next) => {
   return next();
 })
 
-// GET, POST, PUT, DELETE
-
-// req.query = Acessar query params (para filtros)
-// req.params = Acessar route params (para edição, delete)
-// req.body = Acessar corpo da requisição (para criação, edição)
 
 app.use(cors());
 app.use(express.json());
